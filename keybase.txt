@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/k0bold
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://k0bold.com
+  * I am k0bold (https://keybase.io/k0bold) on keybase.
+  * I have a public key ASD2GdhKEMice3AqlDpbGnOXlhJxD0Dd_vs6JNJ9a22aiQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f619d84a10c89c7b702a943a5b1a73979612710f40ddfefb3a24d27d6b6d9a890a",
+      "host": "keybase.io",
+      "kid": "0120f619d84a10c89c7b702a943a5b1a73979612710f40ddfefb3a24d27d6b6d9a890a",
+      "uid": "0d035101c239870f136fcf7d25538419",
+      "username": "k0bold"
+    },
+    "merkle_root": {
+      "ctime": 1529609104,
+      "hash": "6c8ab325b85107830dc2e0f44e7ca3c147244cbc83fc8207de30d57c81a8bbc70777413b08467ab1c4c8ef77251efe301c05fd81c310c62ed404e603c1526e11",
+      "hash_meta": "f7bc36fa291322a8819232955bf70644d3c3297ded7f725bb22e9f7edac3d944",
+      "seqno": 3122059
+    },
+    "service": {
+      "entropy": "ocx/joWKwvdabwx0NGmjO2dF",
+      "hostname": "k0bold.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.3.0"
+  },
+  "ctime": 1529609115,
+  "expire_in": 504576000,
+  "prev": "c4646ebb5b5f176f0d6dfe283d9eb539a395da001abe266f4d0a8205b1843a7d",
+  "seqno": 4,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg9hnYShDInHtwKpQ6Wxpzl5YScQ9A3f77OiTSfWttmokKp3BheWxvYWTESpcCBMQgxGRuu1tfF28Nbf4oPZ61OaOV2gAaviZvTQqCBbGEOn3EINXMjt6X6dZK1jJvKWYfqsiWTVbtqk93DDj5Ew2va7UNAgHCo3NpZ8RAXqVXfa5mzyWD/dMFaonxiVzU1xDv3vjdvkzib75sN2I9Rae8M5LDSKeyAqX0CIsg7e59BV3Y6hTClkyrUPETDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIvYh8PptRo/WUvireaHuKi1PYFG0PZEe9gzYbzyX0IRo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/k0bold
+
+==================================================================

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>k0bold's Godot Tips</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="shortcut icon" type="image/png" href="favicon.gif" />
+  <link rel="stylesheet" href="ninety.css" />
+  <script src="sitewide.js"></script>
+</head>
+
+<body style="background-image: url('./pics/bg/bg10.gif');">
+  <div class="myheader">
+    Tips for using the Godot game engine
+  </div>
+  <div class="mainrow">
+    <iframe class="iframeinvis2" scrolling="no" onload="resizeIframe(this)" src="links.html"></iframe>
+    <div class="contentcolumn">
+      <a href="#blender">
+        <h3 id="blender">Blender</h3>
+      </a>
+      <p>
+        Backface culling = material -> viewport display -> settings -> backface culling checkbox.<br>
+        <br>
+        If collision is messed up, check the normals, apply scale (maybe all transforms), and recalc normals in
+        Blender.<br>
+        <br>
+        If animations messed up - reset all bone positions to rest before exporting from blender<br>
+        <br>
+      </p>
+      <a href="#gdscript">
+        <h3 id="gdscript">GDScript</h3>
+      </a>
+      <p>
+        Casting:<br>
+      <pre>
+  var button := node as Button
+    if button:
+      #it's this type! No need for comparisons or type checks
+      </pre>
+      lerp_angle() for smoothly transistioning between angles<br>
+      <br>
+      Hold alt for multi-caret editing<br>
+      <br>
+      '"property" in node' to see if node.property exists<br>
+      <br>
+      Uninitialized Strings are "" NOT null<br>
+      <br>
+      In 'match' statements use vars only, expressions don't get evaluated<br>
+      <br>
+      Do NOT save Callables in a Resource<br>
+      <br>
+      Events.gd - a script with only signal declarations in it. Make it autoload so its a global singleton. Then hook up global events through it, very handy.<br>
+      </p>
+      <a href="#misc">
+        <h3 id="misc">Misc</h3>
+      </a>
+      <p>
+        Use Area3D's to control audio buses, to get different reverb or effects for different areas.<br>
+        <br>
+        Right click a scene -> view owners to see what uses that scene<br>
+        <br>
+        For anisotropic filtering - need to enable on each material - set texture_filter as linear w/ mipmaps
+        anisotropic<br>
+        <br>
+        If your gui isn't expanding as expected, check container sizing and the 'expand' checkbox<br>
+        <br>
+        Timer.start(time) - timer overwrites the earlier wait_time when called for all future calls too<br>
+        <br>
+        Can add Timers to the scene to save on setup code and remembering to add_child() them<br>
+        <br>
+        Custom values for instantiated scenes - Right click on node -> check Editable Children<br>
+        <br>
+        Can add any data to any node using metadata in the editor or code<br>
+        <br>
+        Unique Names - right click node in editor -> check % scene unique name then use in code like '%myNode'<br>
+        <br>
+        Get 3d node's screen position - 'cam.unproject_position(node.get_global_position)'<br>
+        <br>
+        Callable .bind() args are added after .call() args<br>
+        <br>
+        Keep physics fps at or above fps otherwise there's a lotta jitter<br>
+        <br>
+        Tweens work on bools and lots of other types, but not always in the expected way<br>
+        <br>
+        linear_to_db() for volume sliders<br>
+        <br>
+        get_instance_id() and instance_from_id() to get global references to any node.<br>
+        <br>
+        gui in 3d - <br>
+        &emsp;add a sub Viewport to a Sprite3D.<br>
+        &emsp;give it a viewport texture in subviewport<br>
+        &emsp;turn transparent BG on<br>
+        &emsp;trim off bottom and right pixels with the sprite3d's region<br>
+        &emsp;if using a meshinstance - material has to be local to scenes<br>
+        <br>
+        Vector.distance_to_squared() is faster than Vector.distance_to() so use it when you can<br>
+        <br>
+        Triplanar mapping and displacements maps can't work together<br>
+        <br>
+        Small things ignoring collisions? Turn on continuous CD<br>
+        <br>
+        Physics never sleep? might have to write own code to stop it at low vels<br>
+        <br>
+        'F' in editor to zoom to select node<br>
+        <br>
+        To move a rigid body via code, need to use _integrate_forces(state) and modify the state var:
+      <pre id="code">
+  func _integrate_forces(state):
+    if reset:
+      reset = false
+      state.transform = Transform2D(0.0, reset_pos)
+      linear_velocity = Vector2.ZERO
+      angular_velocity = randf_range(-4.0, 4.0)
+</pre>
+      <br>
+      If your subviewport looks blurry, change the texture filtering on the SubViewportContainer -> CanvasItem ->
+      Texture -> Filter -> set to Nearest. Might need to turn on Stretch at the top too. Also might need code to resize
+      the subviewport to the container's size on size_changed signal.<br>
+      <br>
+      Overlapping Areas that have scripts with body_entered can be screwy. Separate them a bit.<br>
+      <br>
+      
+      </p>
+    </div>
+  </div>
+
+  <!-- <iframe class="iframeinvis" scrolling="no" onload="resizeIframe(this)" src="footer.html"></iframe> -->
+</body>
+
+</html>

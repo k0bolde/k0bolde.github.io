@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>k0bold's Scripts</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="shortcut icon" type="image/png" href="favicon.gif" />
+  <link rel="stylesheet" href="ninety.css" />
+  <script src="sitewide.js"></script>
+</head>
+
+<body style="background-image: url('./pics/bg/bg3.gif');">
+  <div class="myheader">
+    Scripts I made that might be useful to you too
+  </div>
+  <div class="mainrow">
+    <iframe class="iframeinvis2" scrolling="no" onload="resizeIframe(this)" src="links.html"></iframe>
+    <div class="contentcolumn">
+      <a href="#blender-gif"><h3 id="blender-gif">Blender Gif Output for png's</h3></a>
+      Converts blender output .png's in /tmp/*.png to a gif, webp, and dithered/1bit gifs.<br>
+      Requires gifski, imagemagick, and webp (and ffmpeg if you want to play with the telegram sticker output)
+      <br>
+      <a href="./scripts/blender-gif.sh">blender_gif.sh</a>
+      <hr>
+      <a href="#blender-exr"><h3 id="blender-exr">Blender Gif Output for exr's</h3></a>
+      Converts blender output .exr's in /tmp/*.exr to a lossless webp, dithered gif, ordered dithered gif, and
+      (1bw/2bw/4color)-bit gif.<br>
+      Supposedly using gamma corrected images works better for dithering, so I started using exr files since they store
+      linear colorspace. So then I had to figure out colorspace commandline switches for converting linear to sRGB (I
+      think I got most of them...).<br>
+      I started switching to ffmpeg because google's webp commandline program can't open exrs, but ffmpeg can!
+      Imagemagick was also making the ordered dither gif look really low quality for some reason, but ffmpeg's looked
+      pretty good. Ffmpeg is also a lot faster.<br>
+      Requires ffmpeg and imagemagick
+      <br>
+      <a href="./scripts/exr-gif.sh">exr-gif.sh</a>
+      <hr>
+      <a href="#animontage"><h3 id="animontage">Animated Montage</h3></a>
+      Glues together a bunch of animated images into one. Need to manually set the frame time in the script.<br>
+      Requires gifski and python 3<br>
+      <a href="./scripts/animontage.py">animontage.sh</a>
+      <hr>
+      <a href="#cut-gif"><h3 id="cut-gif">Cut Gif Frames</h3></a>
+      Removes frames from a gif while keeping the overall time the same. Basically reduces the framerate.<br>
+      Requires python 3 and imagemagick<br>
+      <a href="./scripts/remove-frames.py">remove-frames.py</a>
+      <hr>
+      <a href="#snap-clean"><h3 id="snap-clean">Cleanup Snap</h3></a>
+      On Ubuntu, snaps like to take up lots of disk space. This removes all the old versions of saved snaps.<br>
+      <a href="./scripts/clean-snap.sh">clean-snap.sh</a>
+      <hr>
+    </div>
+  </div>
+
+  <!-- <iframe class="iframeinvis" scrolling="no" onload="resizeIframe(this)" src="footer.html"></iframe> -->
+</body>
+
+</html>

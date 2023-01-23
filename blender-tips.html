@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>k0bold's Blender Tips</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="shortcut icon" type="image/png" href="favicon.gif" />
+  <link rel="stylesheet" href="ninety.css" />
+  <script src="sitewide.js"></script>
+</head>
+
+<body style="background-image: url('./pics/bg/bg9.gif');">
+  <div class="myheader">
+    Tips for using Blender
+  </div>
+  <div class="mainrow">
+    <iframe class="iframeinvis2" scrolling="no" onload="resizeIframe(this)" src="links.html"></iframe>
+    <div class="contentcolumn">
+      <a href="#vseeface">
+        <h3 id="vseeface">VSeeFace/VRChat</h3>
+      </a>
+      <p>
+        Basic shapekeys: Neutral A E I O U Fun Angry Surprised<br>
+        Optional shapekeys: Joy, Sorrow, Brows up, Brows down, Blink, Blink_L, Blink_R
+      </p>
+      <a href="#misc"><h3 id="misc">Misc</h3></a>
+      <p>
+        Seamless normals between separate meshes:<br>
+        &emsp;From base mesh, dupe selected area, separate into it's own object, make a vertex group for the border
+        vertices<br>
+        &emsp;Add a data transfer modifer (for face corner data + custom normals AND vertex data + weights, target
+        base mesh and only effect the border vertex group).<br>
+        &emsp;Then edit the selected bits but don't touch the border vertex group positions.<br>
+        &emsp;Duplicate base mesh again, separate into it's own object, delete the selected area on the dupe<br>
+        &emsp;Add a data transfer for vertex weights AND face corner normal data (use the base mesh as the
+        source).<br>
+        &emsp;Duplicate and apply all the modifiers when done.<br>
+        <br>
+        Make your own HDRI skyboxes - <br>
+        &emsp;render resolution is 2:1 aspect ration<br>
+        &emsp;camera type: panoramic, panoramic type: equirectangular<br>
+        &emsp;rotation 90, 0, -90 (+x axis) to aim camera at center<br>
+        &emsp;save render as .exr or .hdr<br>
+      </p>
+      <hr>
+      <center>
+        <h3>Files</h3>
+      </center>
+      <a href="#trailcam"><h4 id="trailcam">Trailcam</h4></a>
+      The compositor nodes I use for my "Scary Pics"/trailcam/security cam filtering: <a
+        href="./pics/blender/trailcam.blend">trailcam.blend</a><br>
+      Just append the nodegroup to your project and fiddle with all the settings in the group.<br>
+      <img src="./pics/blender/trailcam-nodes.png">
+      <a href="#tiling"><h4 id="tiling">Seamless Tiling with noise</h4></a>
+      Make seamlessly tiling procedurally generated backgrounds with this material node setup.<br>
+      Also works with other nodes like voronoi and wave, just hook them up to either W or phase offset.
+      <br>
+      Get the sample file with the camera and lighting setup too -> <a
+        href="./pics/blender/seamlesstile.blend">seamlesstile.blend</a><br>
+      <img src="./pics/blender/Screenshot_20221226_133427.png"><br>
+      <hr>
+      <h3>TODO</h3>
+      rigify<br>
+
+    </div>
+  </div>
+
+  <!-- <iframe class="iframeinvis" scrolling="no" onload="resizeIframe(this)" src="footer.html"></iframe> -->
+</body>
+
+</html>
