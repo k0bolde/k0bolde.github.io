@@ -49,12 +49,55 @@
       <br>
       Uninitialized Strings are "" NOT null<br>
       <br>
-      In 'match' statements use vars only, expressions don't get evaluated<br>
-      <br>
       Do NOT save Callables in a Resource<br>
       <br>
-      Events.gd - a script with only signal declarations in it. Make it autoload so its a global singleton. Then hook up global events through it, very handy.<br>
+      Events.gd - a script with only signal declarations in it. Make it autoload so its a global singleton. Then hook up
+      global events through it, very handy.<br>
       </p>
+      <a href="#mp">
+        <h3 id="mp">Multiplayer</h3>
+      </a>
+      @rpc annotations:<br>
+      @rpc("call_local", "any_peer", "reliable") to call method on all peers from any peer.<br>
+      @rpc("call_remote", "any_peer", "reliable") - rpc_id(1, "methodname") for any peer to call a server method<br>
+      <br>
+      MultiplayerSynchronizer node to replicate it's variables from the authority to all others.<br>
+      Might need to make a specific node/script just to hold vars for it, it has trouble directly accessing vars on some
+      nodes, like CharacterBody3D.
+      <br>
+      MultiplayerSpawner node to replicate all children of a specified node from the authority to all others.<br>
+      Has mysteriously failed on me, not sure if buggy or I don't know how to use it.<br>
+      <br>
+      set_multiplayer_authority(name) where your name is set to your peer_id from the authority. Then each player can
+      control their character, still need synchros
+      <br>
+      rpc's cannot return values, but you can do it with an extra rpc call:<br>
+      <pre>
+client - player.gd
+Globals.main.level.rpc_id(1, "find_spawn")
+    
+server - level.gd
+@rpc("call_local", "any_peer")
+func find_spawn(team_num := 0):
+  var point := Vector3.INF
+  ...
+  var caller := multiplayer.get_remote_sender_id()
+  Globals.main.players[caller].rpc_id(caller, "set_respawn_point", point)
+
+client - player.gd
+@rpc("call_local", "any_peer")
+func set_respawn_point(point):
+	global_position = point
+    </pre>
+      <br>
+      if you get tons of error spam about sync_state, try looking for MultiplayerSynchronizer's with no properties
+      assigned.<br>
+      <br>
+      You can calculate the distance from object2's plane (via their up-vector) by using dot-product:<br>
+      var distance := abs(object2.global_transform.y.dot(object1.global_position))<br>
+      <br>
+
+
       <a href="#misc">
         <h3 id="misc">Misc</h3>
       </a>
@@ -101,7 +144,7 @@
         <br>
         Triplanar mapping and displacements maps can't work together<br>
         <br>
-        Small things ignoring collisions? Turn on continuous CD<br>
+        Small things ignoring collisions? Turn on continuous CD on the physics object<br>
         <br>
         Physics never sleep? might have to write own code to stop it at low vels<br>
         <br>
@@ -122,6 +165,24 @@
       the subviewport to the container's size on size_changed signal.<br>
       <br>
       Overlapping Areas that have scripts with body_entered can be screwy. Separate them a bit.<br>
+      <br>
+      Debug -> Keep debug server open checkbox to listen and attach to other godot instances that run<br>
+      <br>
+      Can set a constant color on a reflection probe for colored ambient light in an area<br>
+      <br>
+      Mobile = lightmapgi and reflection probes, no fancier effects.<br>
+      <br>
+      Faking GI <a
+        href="https://docs.godotengine.org/en/latest/tutorials/3d/faking_global_illumination.html#doc-faking-global-illumination">here</a><br>
+      <br>
+      To make a 3d thing invisible but still cast a shadow (like a fps player's head for example), just set each
+      mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY in code or find it in the editor. Alpha
+      materials don't work.<br>
+      <br>
+      <a href="https://github.com/GodotVR/godot-xr-tools">Godot XR Tools</a> - premade code and scenes to help get
+      started on vr games faster.<br>
+      <br>
+      if mouse clicks aren't getting through to 3d, check for ui nodes eating mouse input. Check their Mouse -> Filter and try changing it to Pass.<br>
       <br>
       
       </p>

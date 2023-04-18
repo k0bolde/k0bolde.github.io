@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>k0bold's 3D Gallery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" type="image/png" href="favicon.gif" />
+    <link rel="stylesheet" href="ninety.css" />
+    <script src="sitewide.js"></script>
+    <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+    </link>
+</head>
+
+<body style="background-image: url('./pics/bg/bg15.gif');">
+    <div class="myheader">
+        Some of my 3d models you can view in 3d in your browser. Uses x3dom.
+    </div>
+    <div class="mainrow">
+        <iframe class="iframeinvis2" scrolling="no" onload="resizeIframe(this)" src="links.html"></iframe>
+        <div class="contentcolumn">
+            <center>
+                <img src="./pics/construction.gif">
+                <img src="./pics/ICON-CONSTRUCTION.gif">
+                <img src="./pics/construction.gif">
+            </center>
+            Pean the stoat - early game rig. <a href="./3d/pean2.glb">Download .glb</a>
+            <x3d width='640px' height='480px'>
+                <scene>
+                    <!-- <shape>
+                        <appearance>
+                            <material diffuseColor='1 0 0'></material>
+                        </appearance>
+                        <box></box>
+                    </shape> -->
+
+                    <Transform translation="0 0 0">
+                        <Inline id="inline" url="./3d/pean2.glb" nameSpaceName="gltf" mapDEFToID="true"></Inline>
+                    </Transform>
+                </scene>
+            </x3d>
+            <br>
+            Rust mk III wip <a href="./3d/enemy-kobold.glb">Download .glb</a><br>
+            <x3d width='640px' height='480px'>
+                <scene>
+                    <Transform translation="0 0 0">
+                        <Inline id="inline" url="./3d/enemy-kobold.glb" nameSpaceName="gltf" mapDEFToID="true"></Inline>
+                    </Transform>
+                </scene>
+            </x3d>
+
+        </div>
+    </div>
+
+    <!-- <iframe class="iframeinvis" scrolling="no" onload="resizeIframe(this)" src="footer.html"></iframe> -->
+</body>
+
+</html>
